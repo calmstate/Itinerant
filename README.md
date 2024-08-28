@@ -2,6 +2,8 @@
 
 **Itinerant** is an elegant and lightweight interface designed for interacting with Large Language Models (LLMs). Dive into a world of possibilities with Itinerant, where you can effortlessly create and manage custom agents tailored to your needs. Experience a seamless blend of beauty and functionality.
 
+![alt text](https://raw.githubusercontent.com/calmstate/Itinerant/main/readmeAssets/banner_nobg.png)
+
 ## Key Features
 
 - 🌟 **Create and Customize Agents**: Design your agents with personalized profile images, set their country of origin, and choose their default language. Make each agent uniquely yours!
@@ -9,6 +11,8 @@
 - 📱 **Responsive Design**: Whether you’re on a PC, laptop, or mobile device, Itinerant ensures a smooth and enjoyable experience across all screen sizes.
 - 🎨 **Customizable Themes**: Switch effortlessly between light and dark modes or craft your own custom themes for a truly personalized touch.
 - 🔄 **Progressive Web App (PWA)**: Enjoy a more fluid and engaging experience with our PWA support.
+  
+![alt text](https://github.com/calmstate/Itinerant/blob/main/readmeAssets/itinerant_27-08.gif)
 
 ## Future Enhancements
 
@@ -18,7 +22,7 @@
 
 ## Installation
 
-1. Ensure you have NodeJS 18+ installed on your machine.
+1. Ensure you have NodeJS v20+ installed on your machine.
 2. Clone the repository:
     ```bash
     git clone https://github.com/calmstate/Itinerant.git
