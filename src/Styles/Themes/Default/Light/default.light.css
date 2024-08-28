@@ -1,0 +1,72 @@
+/*
+ * Itinerant (c)
+ * Type: theme
+ * Name: Light Analogous Theme
+ * Author: https://github.com/calmstate/Itinerant/
+ */
+
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+ * {
+   font-family: "Roboto", sans-serif;
+ }
+ 
+ #light {
+   /* Primary Colors */
+   --primary: #50D594;
+   --primary-light: #7feeb8;
+   --primary-dark: #4fc189;
+
+   --primary-color: black;
+   --primary-background: white;
+
+   --secondary-color: white;
+   --secondary-background: black;
+ 
+   /* Neutral Colors */
+   --gray-light: #f0f2f5;
+   --gray: #54656f; 
+   --gray-dark: #00540f1c; 
+   --white: #fff;
+   --black: #000;
+ 
+   /* Transparency */
+   --transparent-white: rgba(255, 255, 255, 0.40);
+   --transparent-black: rgba(0, 0, 0, 0.40);
+ 
+   /* App Components */
+   --acc-agent-background: #f6f7f9;
+   --search-input-background: var(--gray-light);
+   --aci-text-background: #aef6d2;
+   --aci-actions-background: #8df7c2;
+   --act-text-button-background: #b4ffda;
+   --act-text-button-background-hover: #9ef4c9;
+   --act-text-button-color: #79d9a9;
+   --aci-text-textarea-placeholder-color: #4fb080;
+   --fullscreen-color: #8ac49e;
+   --fullscreen-background: #2adc4a1c;
+   --app-content-text-color: #41525d;
+   --app-wrap-background:            var(--primary-color);
+   --app-wrap-bg-image:      url('../Light/Assets/background.svg'); 
+   --app-content-background:         var(--gray-light);
+   --app-sidebar-background:         var(--white);
+   --app-sidebar-icon-color: var(--gray);
+   --app-sidebar-border:     var(--gray-dark);
+   --app-content-input-background:#e2e2e2;
+   --app-content-input-border-color: #d2f6e4;
+   --app-content-chat-background: white;
+   --app-background: white;
+   --app-box-shadow:  rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, 
+                      rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+                      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+   --ascp-description-color: rgb(118, 118, 118);
+   --app-wrap-background:  var(--app-wrap-bg-image) no-repeat center center fixed;
+   --acc-user-background: white;
+   --acc-user-color: black;
+   --acc-agent-color: black;
+   --app-content-header-background: var(--transparent-white);
+   --app-content-header-color: black;
+   --theme-btn-active-background: var(--primary);
+   --theme-btn-active-color: var(--primary-color);
+ }
+ 
