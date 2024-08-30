@@ -3,8 +3,10 @@ import defaultUserPic from "../../../../Assets/bobby.svg";
 import { GlobalStateContext, GlobalDispatchContext } from '../../../../Context/Context';
 
 export const SidebarAgents = ({ handleSelectAgent, newAgentToggle }) => {
-    const { agents } = useContext(GlobalStateContext);
- 
+    const { agents, favorites } = useContext(GlobalStateContext);
+    const dispatch = useContext(GlobalDispatchContext);
+
+    // Inicializa a lista de agentes, garantindo que `agents` esteja definido
     const [agentsList, setAgentsList] = useState([]);
 
     useEffect(() => {
@@ -12,7 +14,12 @@ export const SidebarAgents = ({ handleSelectAgent, newAgentToggle }) => {
             setAgentsList(agents);
         }
     }, [agents]);
- 
+
+    // Função para alternar o estado de favorito
+    const handleToggleFavorite = (agentId) => {
+        // Ação para alternar o favorito deve ser definida no reducer
+        dispatch({ type: 'TOGGLE_FAVORITE', payload: agentId });
+    };
 
     return (
         <div id="app-sidebar-agents">
@@ -29,6 +36,20 @@ export const SidebarAgents = ({ handleSelectAgent, newAgentToggle }) => {
                                 <div className="ascp-description">{agent.info.description}</div>
                             </div>
                         </div>
+                        {/* <div className="mini-tools">
+                            <IoPinSharp size={14} />
+                            <div onClick={(e) => { 
+                                e.stopPropagation(); 
+                                handleToggleFavorite(agent.id); 
+                            }}>
+                                {favorites[agent.id] ? (
+                                    <MdOutlineFavorite size={13} />
+                                ) : (
+                                    <MdFavoriteBorder size={13} />
+                                )}
+                            </div>
+                            <IoRemoveCircleOutline size={14} />
+                        </div> */}
                     </div>
                 ))
                 : 

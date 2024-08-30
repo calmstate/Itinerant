@@ -22,8 +22,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    /* background:  var(--app-wrap-bg-image) no-repeat center center fixed; */
-    background: white;
+    background:  var(--app-wrap-bg-image) no-repeat center center fixed;  
     background-size: cover;
   }
   
@@ -536,8 +535,9 @@
     width: 100% !important;
     height: 100vh !important;
     max-width: 100% !important;
+    border-radius: 0px !important;
   }
-
+ 
   #no-agent {
     width: 100%;
     height: 100%;
@@ -699,16 +699,29 @@
   margin-top: 15px;
   margin-bottom: 20px;
 }
-.mini-form-body input, .mini-form-body textarea, .mini-form-body select{
-  border: 1px solid var(--primary-color);
+.mini-form-body input, .mini-form-body select, .mini-form-body textarea{
+    border: none;
+    background: var(--input-background);
+}
+.mini-form-body input::placeholder, .mini-form-body select::placeholder, .mini-form-body textarea::placeholder{
+   color: var(--input-placeholder-color)
+}
+.mini-form-body input, .mini-form-body select{
   color: var(--primary-color);
-  background: var(--primary-background);
-  border-radius: 8px;
-  height: 30px;
+  border-radius: 28px;
+  height: 35px;
   padding:5px;
-  padding-left: 10px;
+  padding-left: 15px;
   box-sizing: border-box;
-  max-width: 260px;
+  width: 100%;
+}
+.mini-form-body textarea{ 
+  color: var(--primary-color);
+  border-radius:5px;
+  height: 35px;
+  padding:15px;
+ 
+  box-sizing: border-box;
   width: 100%;
 }
  
@@ -726,16 +739,16 @@
   box-sizing: border-box;
 }
 .theme-btn{
-  border: 1px solid var(--primary-color);
   background-color: transparent;
-  color:var(--primary-color);
-  width: 50px;
+  color: var(--primary);
+  border: 1px solid var(--theme-btn-active-background);
+  width: 127px;
   padding: 10px;
   cursor: pointer;
 }
 .active{
   background: var(--theme-btn-active-background);
-  color: var(--theme-btn-active-color);
+  color: white;
 }
 .theme-btn:nth-child(1){
    border-top-left-radius: 20px;
@@ -769,7 +782,7 @@
  
 .drop-image{
   width: 100%;
-  height: 100px;
+  height: 200px;
   border-radius: 10px;
   border: 5px dashed var(--gray-dark);
   display: flex;
@@ -778,6 +791,16 @@
   flex-direction: column;
   padding: 30px;
   box-sizing: border-box;
+  gap: 5px;
+}
+.drop-image h3{
+  flex: 0;
+}
+.drop-image label{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
   .drop-image-after{
     width: 200px;
@@ -800,60 +823,52 @@
 .newAgent, .newAgent .mini-form-body{
   width: 100%;
   max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
-.newAgent input, .newAgent textarea, .newAgent select{
-  max-width: 600px;
-}
+ 
 #country-selector{
   width: 100%;
-  max-width: 700px;
   height: 500px;
-  background: var(--primary);
+  background: var(--country-selector-background);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 #cs-header{
   width: 100%;
-  min-height: 100px;
+  height: 80px;
   box-sizing: border-box;
-  color: #ffffff;
+  color: var(--country-selector-header-color);
   position: relative;
+}
+#cs-header-title{
+  padding:10px;
+  box-sizing: border-box;
+  height: 40px;
+  padding-left: 40px;
+  font-size: 1em;
 }
 #cs-header-search{
    width: 100%;
-   height: 10px;
+   height: 40px;
    display: flex;
    justify-content: center;
    align-items: center;
-   padding: 20px;
-   background: var(--primary-dark);
+   padding: 10px;
    box-sizing: border-box;
+   border-top: 1px solid rgba(255, 255, 255, 0.247);
 }
-
 #cs-header-search input{
   border: none;
   background: none;
   flex: 1;
   color: var(--secondary-color);
+  font-size: 1em;
 }
 #cs-header-search input::placeholder{
     color:var(--secondary-color);
 }
-
-#cs-header-title{
-  padding:30px;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  height: 40px;
- 
-}
 #cs-body{
-
   background-color: red;
   width: 100%;
   flex: 15;

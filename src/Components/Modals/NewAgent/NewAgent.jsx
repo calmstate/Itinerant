@@ -3,7 +3,6 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import countriesGeoJSON from "../../../Assets/geoFiles/countries.geo.json";
 import { Modal } from "../../Modal/Modal";
-import { CiGlobe } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
 import { MapComponent } from "../../Map/Map.jsx";
 import { GlobalStateContext, GlobalDispatchContext } from "../../../Context/Context";
@@ -31,9 +30,8 @@ const languages = [
 ];
 
 export const NewAgent = ({ agent, onClose, onCreate, onUpdate }) => {
+  
   const { agents } = useContext(GlobalStateContext);
-  const dispatch = useContext(GlobalDispatchContext);
-
   const [image, setImage] = useState(null);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -230,7 +228,6 @@ export const NewAgent = ({ agent, onClose, onCreate, onUpdate }) => {
             <div id="cs-header">
               <div id="cs-header-title">
                 <h3>
-                  <CiGlobe size={20} />{" "}
                   {selectedCountry ? selectedCountry : "Select a country"}
                 </h3>
               </div>
@@ -244,9 +241,9 @@ export const NewAgent = ({ agent, onClose, onCreate, onUpdate }) => {
               </div>
             </div>
             <div id="cs-body">
-              <MapContainer center={[0, 0]} zoom={2} style={{ height: '100%' }}>
+              <MapContainer center={[0, 0]} zoom={2} style={{ height: '100%' }} attributionControl={false}>
                 <TileLayer
-                  attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 <MapComponent

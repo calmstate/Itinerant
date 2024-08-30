@@ -1,7 +1,5 @@
 /*
  * Itinerant (c)
- * Type: theme
- * Name: Light Analogous Theme
  * Author: https://github.com/calmstate/Itinerant/
  */
 
@@ -68,5 +66,9 @@
    --app-content-header-color: black;
    --theme-btn-active-background: var(--primary);
    --theme-btn-active-color: var(--primary-color);
+   --country-selector-background: #7fcea5;
+   --country-selector-header-color: #2d7b53;
+   --input-background: #f0f2f5;
+   --input-placeholder-color: #b0bac7;
  }
  

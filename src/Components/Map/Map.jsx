@@ -13,14 +13,17 @@ export const MapComponent = ({ selectedCountry, setSelectedCountry, countriesGeo
         );
   
         if (countryData) {
+          // Centraliza o mapa no país selecionado com flyTo
           const bounds = L.geoJSON(countryData).getBounds();
-          map.flyToBounds(bounds, { duration: 0.5 });
+          map.flyToBounds(bounds, { duration: 0.5 }); // Ajuste a duração conforme necessário
+  
+          // Destaca o país selecionado no mapa
           if (geoJsonRef.current) {
             geoJsonRef.current.eachLayer((layer) => {
               if (layer.feature.properties.name === selectedCountry) {
-                layer.setStyle({ fillColor: '#4fc189' }); 
+                layer.setStyle({ fillColor: '#4fc189' }); // Define a cor de preenchimento desejada
               } else {
-                layer.setStyle({ fillColor: 'transparent' }); 
+                layer.setStyle({ fillColor: 'transparent' }); // Remove o preenchimento de outros países
               }
             });
           }
@@ -39,7 +42,7 @@ export const MapComponent = ({ selectedCountry, setSelectedCountry, countriesGeo
     return (
       <GeoJSON
         data={countriesGeoJSON}
-        style={{ weight: 1, color: "black", fillOpacity: 0.7 }}
+        style={{ weight: 1, color: "var(--country-selector-header-color)", fillOpacity: 0.7, }}
         onEachFeature={onEachCountry}
         ref={geoJsonRef} 
       />

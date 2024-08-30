@@ -50,7 +50,10 @@ export const ContentInput = ({ onSend, isEnable }) => {
           <VscSend size={25} />
         </button>
       </div>
-      <div id="aci-actions"></div>
+      <div id="aci-actions">
+    
+      </div>
+
     </div>
   );
 };

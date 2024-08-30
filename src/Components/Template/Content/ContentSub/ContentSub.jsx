@@ -4,6 +4,7 @@ import { ContentChat } from '../ContentChat/ContentChat';
 import { ContentInput } from '../ContentInput/ContentInput';
 import { GlobalDispatchContext } from '../../../../Context/Context.js';
 import { getOllamaResponse } from "../../../../LLM/Ollama/Ollama.js";
+import { commonPrompt } from "../../../../Config/PromptCollection.js";
 
 export const ContentSub = ({ config, agent, handleEditAgent, handleCloneAgent, handleClearChat, handleDeleteAgent }) => {
   const [messages, setMessages] = useState([]);
@@ -13,17 +14,14 @@ export const ContentSub = ({ config, agent, handleEditAgent, handleCloneAgent, h
 
   useEffect(() => {
     (async () => {
+     
       const systemPrompt = {
         role: "system",
-        content: `
-          Your name is: ${agent.info.name}
-          You are from: ${agent.country.name}
-          You speak: ${agent.country.language}
-          Your cultural context in ${agent.country.name} influences your way of acting.
-          
-          More information about you:
-          ${agent.system.prompt}
-        `
+        content: commonPrompt(
+          agent.info.name, 
+          agent.country.name, 
+          agent.country.language,
+          agent.system.prompt)
       };
       const initialMessage = {
         role: "assistant",

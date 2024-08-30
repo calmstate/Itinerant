@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Modal } from "../../Modal/Modal";
+import { openDB } from "idb";
 import { RiSettingsLine } from "react-icons/ri";
 import { TbBoxModel2 } from "react-icons/tb";
 import { LuUserSquare } from "react-icons/lu";
@@ -7,12 +8,26 @@ import { MdOutlineWebAsset, MdImportExport } from "react-icons/md";
 import { GrPowerReset } from "react-icons/gr";
 import { VscBook } from "react-icons/vsc";
 import { CiImport, CiExport } from "react-icons/ci";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const ConfigModal = ({ onClose, config, onReset, onSave, modelList }) => {
     const [ollama, setOllama] = useState({});
     const [user, setUser] = useState({});
     const [theme, setTheme] = useState({});
     const [enableReset, setEnableReset] = useState(false);
+    const initDB = async () => {
+        return openDB('app-db', 1, {
+            upgrade(db) {
+                if (!db.objectStoreNames.contains('config')) {
+                    db.createObjectStore('config');
+                }
+                if (!db.objectStoreNames.contains('agents')) {
+                    db.createObjectStore('agents');
+                }
+            }
+        });
+    };
 
     useEffect(() => {
         const fetchUserName = async () => {
@@ -42,13 +57,15 @@ export const ConfigModal = ({ onClose, config, onReset, onSave, modelList }) => 
         link.click();
     };
 
-    const handleExportConfig = () => {
-        const config = JSON.parse(localStorage.getItem("it-config"));
+    const handleExportConfig = async () => {
+        const db = await initDB();
+        const config = await db.get('config', 'config');
         exportToFile("config.json", config);
     };
 
-    const handleExportAgents = () => {
-        const agents = JSON.parse(localStorage.getItem("it-agents"));
+    const handleExportAgents = async () => {
+        const db = await initDB();
+        const agents = await db.get('agents', 'agents');
         exportToFile("agents.json", agents);
     };
 
@@ -56,9 +73,9 @@ export const ConfigModal = ({ onClose, config, onReset, onSave, modelList }) => 
         try {
             const parsed = JSON.parse(json);
             if (type === "config" && parsed.interface && parsed.user && parsed.ollama) {
-                return true;
+                return parsed;
             } else if (type === "agents" && Array.isArray(parsed)) {
-                return true;
+                return parsed;
             }
             return false;
         } catch {
@@ -73,13 +90,15 @@ export const ConfigModal = ({ onClose, config, onReset, onSave, modelList }) => 
         input.onchange = async (e) => {
             const file = e.target.files[0];
             const reader = new FileReader();
-            reader.onload = (event) => {
+            reader.onload = async (event) => {
                 const json = event.target.result;
-                if (validateJSON(json, type)) {
-                    localStorage.setItem(type === "config" ? "it-config" : "it-agents", json);
-                    alert(`${type === "config" ? "Configuração" : "Agentes"} importado(a) com sucesso!`);
+                const parsedData = validateJSON(json, type);
+                if (parsedData) {
+                    const db = await initDB();
+                    await db.put(type === "config" ? 'config' : 'agents', parsedData, type);
+                    toast(`${type === "config" ? "Configuration" : "Agents"} successfully imported!`);
                 } else {
-                    alert("JSON inválido. Verifique o formato do arquivo e tente novamente.");
+                    toast(`Invalid JSON. Check the file format and try again.`);
                 }
             };
             reader.readAsText(file);

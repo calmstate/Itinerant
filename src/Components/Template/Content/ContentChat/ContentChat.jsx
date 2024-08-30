@@ -35,7 +35,7 @@ export const ContentChat = ({messages, agent, onConfig}) => {
       style={{ 
         overflowY: 'auto', 
         height: '100%', 
-        scrollBehavior: 'smooth'  
+        scrollBehavior: 'smooth'  // Adiciona rolagem suave
       }}
     >
       {

@@ -1,7 +1,5 @@
 /*
  * Itinerant (c)
- * Type: theme
- * Name: Dark Analogous Theme
  * Author: https://github.com/calmstate/Itinerant/
  */
 
@@ -30,7 +28,7 @@
    --transparent-black: rgba(0, 0, 0, 0.60);
  
    /* App Components */
-   --acc-agent-background: #36896c;
+   --acc-agent-background: #202329;
    --search-input-background: var(--gray-light);
    --aci-text-background: #171a20;
    --aci-actions-background: #0d0f13;
@@ -48,7 +46,7 @@
    --app-sidebar-border:     var(--gray);
    --app-content-input-background: #454A50;
    --app-content-input-border-color: #3f4550;
-   --app-content-chat-background: #3A3D42;
+   --app-content-chat-background: #161717;
    --app-box-shadow:  rgba(0, 0, 0, 0.6) 0px 1px 1px 0px inset, 
                       rgba(0, 0, 0, 0.7) 0px 50px 100px -20px, 
                       rgba(0, 0, 0, 0.5) 0px 30px 60px -30px;
@@ -61,6 +59,10 @@
    --app-content-header-color: white;
    --theme-btn-active-background: var(--primary-color);
    --theme-btn-active-color: var(--primary-dark);
+   --country-selector-background: #7fcea5;
+   --country-selector-header-color: #2d7b53;
+   --input-background: #19261f;
+   --input-placeholder-color: #2a483e;
  }
 
 .app-wrap {
