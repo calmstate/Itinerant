@@ -2,7 +2,7 @@
 
 **Itinerant** is an elegant and lightweight interface designed for interacting with Large Language Models (LLMs). Dive into a world of possibilities with Itinerant, where you can effortlessly create and manage custom agents tailored to your needs. Experience a seamless blend of beauty and functionality.
 
-![alt text](https://raw.githubusercontent.com/calmstate/Itinerant/main/readmeAssets/banner_nobg.png)
+![alt text](https://github.com/calmstate/Itinerant/blob/main/readmeAssets/header_readme.svg)
 
 ## Key Features
 
@@ -12,7 +12,7 @@
 - 🎨 **Customizable Themes**: Switch effortlessly between light and dark modes or craft your own custom themes for a truly personalized touch.
 - 🔄 **Progressive Web App (PWA)**: Enjoy a more fluid and engaging experience with our PWA support.
   
-![alt text](https://github.com/calmstate/Itinerant/blob/main/readmeAssets/itinerant_27-08.gif)
+![alt text](https://github.com/calmstate/Itinerant/blob/main/readmeAssets/itinerant_29-08.gif)
 
 ## Future Enhancements
 
