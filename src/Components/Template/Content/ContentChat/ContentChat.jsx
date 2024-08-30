@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { ChatAgent } from '../../../Chat/ChatAgent/ChatAgent';
-import { ChatUser } from '../../../Chat/ChatUser/ChatUser.jsx';
+import { ChatAgent } from '../../../Chat/Agent/ChatAgent';
+import { ChatUser } from '../../../Chat/User/ChatUser';
 
 export const ContentChat = ({messages, agent, onConfig}) => {
 
